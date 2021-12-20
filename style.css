@@ -55,14 +55,12 @@ h1 {
   color: var(--color-black);
   margin: 16px 0;
 }
-
 h2 {
   font-size: var(--font-regular);
   font-weight: var(--weight-semi-bold);
   color: var(--color-black);
   margin: 8px 0;
 }
-
 h3 {
   font-size: var(--font-medium);
   font-weight: var(--weight-regular);
@@ -70,33 +68,41 @@ h3 {
   margin: 8px 0;
 }
 
+/* P common */
 p {
   font-size: var(--font-medium);
   font-weight: var(--weight-regular);
   color: var(--color-black);
   margin: 4px 0;
 }
-
+/* Button common */
 button {
   background-color: transparent;
   cursor: pointer;
   border: none;
   outline: none;
 }
-
+/* I common */
 i {
   font-size: 36px;
 }
-
+/* Section common */
+.section {
+  padding: 40px;
+  text-align: center;
+  margin: auto;
+}
 .section .header {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
-
 .section .header__icons {
-  margin-right: 16px;
   cursor: pointer;
+  transition: all 300ms ease;
+}
+.section .header__icons:hover {
+  transform: rotate(90deg);
 }
 
 .section .header__title {
@@ -178,33 +184,23 @@ i {
   transform: scale(1.2);
 }
 
-/* Section common */
-
-.section {
-  padding: 40px;
-  text-align: center;
-  margin: auto;
-}
-
 /* About */
-#about {
-  background: var(--color-white);
+#about .header {
+  margin-bottom: 32px;
 }
 
-.first-row {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 40px;
-}
-.second-row {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 40px;
+.about__infos {
+  display: grid;
+  margin: auto;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
 }
 
 .about__info {
   display: flex;
-  align-items: list baseline;
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
 }
 
 .about__info__icons {
@@ -214,7 +210,6 @@ i {
 .about__info__category .title {
   font-size: var(--font-medium);
   font-weight: var(--weight-regular);
-
   margin-bottom: 4px;
   text-align: start;
 }
@@ -225,4 +220,20 @@ i {
 
 #skills {
   background-color: #fae100;
+}
+
+#desc {
+  background-color: var(--color-black);
+  padding-top: 16px;
+  height: 128px;
+}
+
+.section .links .github i {
+  font-size: 48px;
+  color: var(--color-white);
+  padding: 16px;
+}
+
+.section .copyright {
+  color: white;
 }
