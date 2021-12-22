@@ -394,14 +394,14 @@ i {
 .career-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
   max-width: 1024px;
   margin: auto;
 }
 
 .company {
-  padding: 32px;
   display: flex;
+  justify-content: flex-end;
+  padding: 32px;
   width: 100%;
   background-color: var(--color-light-white);
 }
@@ -432,7 +432,6 @@ i {
 
 .career__right {
   padding: 16px 0px;
-  margin-left: 16px;
   text-align: left;
   width: 100%;
 }
