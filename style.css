@@ -150,10 +150,7 @@ i {
 }
 
 .navbar__logo a:hover {
-  color: var(--color-black);
-  border-radius: var(--size-border-radius);
-  border: 1px solid var(--color-light-white);
-  background-color: var(--color-white);
+  color: var(--color-white);
   padding: 0px 4px;
 }
 .navbar__menu {

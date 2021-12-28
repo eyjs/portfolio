@@ -26,16 +26,22 @@ window.addEventListener('scroll', ()=> {
 
 // navbar menu click
 const navbarMenu = document.querySelector('.navbar__menu');
+navbarMenu.addEventListener('click', (event) => {
+  scrollIntoView(event);
+});
 
-navbarMenu.addEventListener('click', (event)=> {
+// home contact btn click
+const home = document.querySelector('.home__contact');
+home.addEventListener('click', (event) => {
+  scrollIntoView(event);
+});
+
+function scrollIntoView(event) {
   const target = event.target;
   const link = target.dataset.link;
   if (link == null) {
     return;
   }
-
-  console.log(link);
   const scrollTo = document.querySelector(link);
-  scrollTo.scrollIntoView({behavior:"smooth"});
-  
-})
+  scrollTo.scrollIntoView({behavior: 'smooth'});
+}
