@@ -1,26 +1,18 @@
 'use strict';
 
-// documnet elementes
+// when navbar scrolling
 const navbar = document.querySelector('#navbar');
-const home = document.querySelector('#about');
-const about = document.querySelector('#about');
-const skills = document.querySelector('#works');
-const works = document.querySelector('#career');
-const desc = document.querySelector('#desc');
-
-// variables
 let last_known_scroll_position = 0;
 let ticking = false;
 
-// functions
+// callback function
 function navbarActive(positionY) {
   navbar.classList.add('navbar--dark');
   if (positionY == 0) {
     navbar.classList.remove('navbar--dark');
   } 
 }
-
-// event listeners
+// scroll event listener
 window.addEventListener('scroll', ()=> {
   last_known_scroll_position = window.scrollY;
   if (!ticking) {
@@ -31,3 +23,19 @@ window.addEventListener('scroll', ()=> {
     ticking = true;
   }
 });
+
+// navbar menu click
+const navbarMenu = document.querySelector('.navbar__menu');
+
+navbarMenu.addEventListener('click', (event)=> {
+  const target = event.target;
+  const link = target.dataset.link;
+  if (link == null) {
+    return;
+  }
+
+  console.log(link);
+  const scrollTo = document.querySelector(link);
+  scrollTo.scrollIntoView({behavior:"smooth"});
+  
+})
