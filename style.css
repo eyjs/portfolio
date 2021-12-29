@@ -319,7 +319,7 @@ i {
 #works {
   min-height: 450px;
 }
-.works__categories {
+.work__categories {
   display: flex;
   justify-content: center;
   position: relative;
@@ -339,7 +339,11 @@ i {
 }
 
 .category__btn:hover {
-  background-color: red;
+  background-color: var(--color-dark-blue);
+}
+
+.category__btn--selected {
+  background-color: var(--color-dark-blue);
 }
 
 .work__projects {

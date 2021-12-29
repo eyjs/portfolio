@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
 // when navbar scrolling
-const navbar = document.querySelector('#navbar');
+const navbar = document.querySelector("#navbar");
 let last_known_scroll_position = 0;
 let ticking = false;
 
 // scroll event listener
-window.addEventListener('scroll', ()=> {
+window.addEventListener("scroll", () => {
   last_known_scroll_position = window.scrollY;
   if (!ticking) {
-    window.requestAnimationFrame(()=> {
+    window.requestAnimationFrame(() => {
       navbarActive(last_known_scroll_position);
       ticking = false;
     });
@@ -19,21 +19,21 @@ window.addEventListener('scroll', ()=> {
 
 // callback functions
 function navbarActive(positionY) {
-  navbar.classList.add('navbar--dark');
+  navbar.classList.add("navbar--dark");
   if (positionY == 0) {
-    navbar.classList.remove('navbar--dark');
-  } 
+    navbar.classList.remove("navbar--dark");
+  }
 }
 
 // navbar menu click
-const navbarMenu = document.querySelector('.navbar__menu');
-navbarMenu.addEventListener('click', (event) => {
+const navbarMenu = document.querySelector(".navbar__menu");
+navbarMenu.addEventListener("click", (event) => {
   scrollIntoView(event);
 });
 
 // home contact btn click
-const home = document.querySelector('.home__contact');
-home.addEventListener('click', (event) => {
+const home = document.querySelector(".home__contact");
+home.addEventListener("click", (event) => {
   scrollIntoView(event);
 });
 
@@ -45,25 +45,33 @@ function scrollIntoView(event) {
     return;
   }
   const scrollTo = document.querySelector(link);
-  scrollTo.scrollIntoView({behavior: 'smooth'});
+  scrollTo.scrollIntoView({ behavior: "smooth" });
 }
 
-const workCategories = document.querySelector('.works__categories');
-workCategories.addEventListener('click', (event)=> {
+// Works Filter
+const workCategories = document.querySelector(".work__categories");
+const projects = document.querySelectorAll(".work__project");
+
+workCategories.addEventListener("click", (event) => {
   const target = event.target;
   const filter = target.dataset.filter;
-  if(filter == null) {
+  if (filter == null) {
     return;
   }
-  
-  const projects = document.querySelectorAll('.work__project');
-  projects.forEach((project)=>{
-    if (project.dataset.project === filter || filter === 'all') {
-      project.classList.remove('work__project--hidden');
+  const active = document.querySelector(
+    ".category__btn.category__btn--selected"
+  );
+
+  // filter button selected & remove
+  active.classList.remove("category__btn--selected");
+  target.classList.add("category__btn--selected");
+
+  projects.forEach((project) => {
+    let dataType = project.dataset.type;
+    if (dataType === filter || filter === "all") {
+      project.classList.remove("work__project--hidden");
     } else {
-      project.classList.add('work__project--hidden');
+      project.classList.add("work__project--hidden");
     }
   });
 });
-
-
