@@ -58,14 +58,14 @@ workCategories.addEventListener("click", (event) => {
   if (filter == null) {
     return;
   }
+  // filter button selected & remove
   const active = document.querySelector(
     ".category__btn.category__btn--selected"
   );
-
-  // filter button selected & remove
   active.classList.remove("category__btn--selected");
   target.classList.add("category__btn--selected");
 
+  // projects get and filtering
   projects.forEach((project) => {
     let dataType = project.dataset.type;
     if (dataType === filter || filter === "all") {
